@@ -1,0 +1,47 @@
+<div class="container">
+  <h2 class="text-center">양식을 작성하고 저장 버튼을 클릭하십시오</h2>
+  <hr>
+  <div class="row">
+
+    <form>
+      <div class="form-group">
+        <label>name</label>
+        <input type="text" class="form-control" placeholder="name" required
+        [(ngModel)]="dataUser.name" name="name">
+      </div>
+
+      <div class="form-group">
+        <label>title</label>
+        <input type="text" class="form-control" placeholder="title" required
+        [(ngModel)]="dataUser.title" name="title">
+      </div>
+
+      <div class="form-group">
+        <label>Descripcion</label>
+        <textarea type="text" class="form-control altura-area" placeholder="Descripcion" required
+        [(ngModel)]="dataUser.descripcion" name="descripcion"></textarea>
+      </div>
+      <button class="btn btn-outline-primary"
+      type="submit" (click)="senddata()" *ngIf="!spinner">
+        <i class="fa fa-floppy-o" aria-hidden="true"> </i>
+        저장</button>
+
+      <button class="btn btn-outline-primary"
+              *ngIf="spinner" type="submit">
+        <i class="fa fa-spinner fa-spin" aria-hidden="true"> </i>
+        데이터 삽입 중...</button>
+    </form>
+
+    <div class="alert alert-danger col-md-12" role="alert" *ngIf="msgError">
+      <strong>모든 필드를 조건에 맞게 완성하셔야 저장할 수 있습니다.</strong>
+    </div>
+
+    <div class="alert alert-success col-md-12" role="alert" *ngIf="msgSucces">
+      <p><strong>성공! 데이터가 성공적으로 저장 되었습니다.</strong></p>
+      <p><i class="fa fa-spinner fa-spin" aria-hidden="true"></i> 곧! Redirect 됩니다.
+      </p>
+    </div>
+
+  </div>
+
+</div>

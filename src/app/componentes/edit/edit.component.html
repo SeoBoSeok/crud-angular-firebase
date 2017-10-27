@@ -1,0 +1,41 @@
+<div class="container">
+  <h2 class="text-center">편집 할 수 있습니다</h2>
+  <hr>
+
+  <div class="row">
+
+    <form>
+      <div class="form-group">
+        <label>name</label>
+        <input type="text" class="form-control" placeholder="name" required
+               [(ngModel)]="dataUser.name" name="name">
+      </div>
+
+      <div class="form-group">
+        <label>title</label>
+        <input type="text" class="form-control" placeholder="title" required
+               [(ngModel)]="dataUser.title" name="title">
+      </div>
+
+      <div class="form-group">
+        <label>Descripcion</label>
+        <textarea type="text" class="form-control altura-area" placeholder="Descripcion" required
+                  [(ngModel)]="dataUser.descripcion" name="descripcion"></textarea>
+      </div>
+
+      <button class="btn btn-outline-primary"
+              type="submit" (click)="senddata()">
+        <i class="fa fa-floppy-o" aria-hidden="true"> </i>
+        수정하기</button>
+
+    </form>
+
+    <div class="alert alert-info col-md-12" role="alert" *ngIf="loading">
+      <p><i class="fa fa-spinner fa-spin" aria-hidden="true"></i>
+        <strong>변경 사항을 업데이트하고 있습니다...</strong></p>
+    </div>
+
+  </div>
+
+
+</div>

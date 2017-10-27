@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="row">
+
+  <div class="col-md-12 boton-insertar">
+    <button class="btn btn-primary" [routerLink]="['/register/','new']"><i class="fa fa-plus-circle" aria-hidden="true"></i> 등록하기
+    </button>
+  </div>
+
+    <table class="table table-inverse">
+      <thead>
+      <tr>
+        <th>name</th>
+        <th>title</th>
+        <th>Descripción</th>
+        <th>수정하기</th>
+        <th>제거하기</th>
+      </tr>
+      </thead>
+
+      <tbody>
+      <tr *ngFor="let register of dataShow">
+        <td>{{register.name}}</td>
+        <td>{{register.title}}</td>
+        <td>{{register.descripcion}}</td>
+        <td><button class="btn btn-primary" (click)="edit(register.keyz)">수정하기</button></td>
+        <td><button class="btn btn-danger" (click)="elimination(register.keyz)">제거하기</button></td>
+      </tr>
+
+      </tbody>
+    </table>
+
+    <div class="alert alert-info" role="alert" *ngIf="eliminate">
+      <p><i class="fa fa-spinner fa-spin" aria-hidden="true"></i>
+        <strong>데이터를 삭제하고 있습니다. 잠시 기다려주십시오...</strong></p>
+    </div>
+
+  </div>
+</div>
